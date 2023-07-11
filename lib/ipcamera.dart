@@ -52,9 +52,10 @@ class _ipCameraState extends State<ipCamera> {
 
   @override
   void initState() {
+    String stream = '/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER';
     super.initState();
     _videoPlayerController = VlcPlayerController.network(
-      'http://84.232.147.36:8080/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER',
+      'http://84.232.147.36:8080$stream',
       hwAcc: HwAcc.auto,
       autoPlay: true,
       options: VlcPlayerOptions(),
