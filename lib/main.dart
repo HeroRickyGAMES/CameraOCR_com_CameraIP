@@ -66,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              Text('Recomendamos que mantenha centralizado na placa antes de tirar a foto!'),
+              const Text('Recomendamos que mantenha centralizado na placa antes de tirar a foto!'),
               ScalableOCR(
                   paintboxCustom: Paint()
                     ..style = PaintingStyle.stroke
@@ -171,7 +171,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               print("placas da camera $x");  // [XXX7XXX]
                             });
 
-                          }, child: Text('Travar texto')
+                          }, child: const Text('Travar texto')
                           ),
                           Text("Estado extraido: $tratado"),
                           ElevatedButton(onPressed: (){
@@ -181,7 +181,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   return ipCamera(title: 'Flutter Scalable OCR IPCAMERA',);
                                 }));
 
-                          }, child: Text('Mudar para IP CAMERA'))
+                          }, child: const Text('Mudar para IP CAMERA'))
                         ],
                       )
                   );
