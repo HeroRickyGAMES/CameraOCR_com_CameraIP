@@ -90,13 +90,13 @@ class _ipCameraState extends State<ipCamera> {
                 await _videoPlayerController.stopRendererScanning();
                 await _videoPlayerController.dispose();
                 Navigator.of(context).pop();
-              }, child: Text('Close IP CAMERA'),
+              }, child: const Text('Close IP CAMERA'),
               ),
               ElevatedButton(onPressed: () async {
                 await _videoPlayerController.stopRendererScanning();
                 await _videoPlayerController.dispose();
 
-              }, child: Text('Dispose IP CAMERA'),
+              }, child: const Text('Dispose IP CAMERA'),
               ),
               ElevatedButton(onPressed: () async {
 
@@ -114,7 +114,7 @@ class _ipCameraState extends State<ipCamera> {
                 print('Texto Extraido: $extractedText');
                 print('Fim');
 
-              }, child: Text(
+              }, child: const Text(
                   'Visualizar no console o texto extraido'
                 )
               )
