@@ -30,7 +30,7 @@ class ipCamera extends StatefulWidget {
 
   final String title;
 
-  final textRecognizer = GoogleMlKit.vision.textRecognizer();
+  final textRecognizer = GoogleMlKit.vision.textDetector();
 
   @override
   State<ipCamera> createState() => _ipCameraState();
@@ -80,12 +80,12 @@ class _ipCameraState extends State<ipCamera> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-                VlcPlayer(controller:
-                _videoPlayerController,
-                  aspectRatio: 16 / 9,
-                  placeholder: const Center(child: CircularProgressIndicator()
-                  ),
+              VlcPlayer(controller:
+              _videoPlayerController,
+                aspectRatio: 16 / 9,
+                placeholder: const Center(child: CircularProgressIndicator()
                 ),
+              ),
               ElevatedButton(onPressed: () async {
                 await _videoPlayerController.stopRendererScanning();
                 await _videoPlayerController.dispose();
@@ -102,7 +102,7 @@ class _ipCameraState extends State<ipCamera> {
 
                 Uint8List videoFrame = await _videoPlayerController.takeSnapshot();
 
-                final textRecognizer = GoogleMlKit.vision.textRecognizer();
+                final textRecognizer = GoogleMlKit.vision.textDetector();
                 print('Pegando imagem e pondo no texto');
 
 
@@ -116,7 +116,7 @@ class _ipCameraState extends State<ipCamera> {
 
               }, child: const Text(
                   'Visualizar no console o texto extraido'
-                )
+              )
               )
             ],
           ),
