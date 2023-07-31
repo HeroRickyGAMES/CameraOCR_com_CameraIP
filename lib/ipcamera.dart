@@ -3,11 +3,13 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_vlc_player/flutter_vlc_player.dart';
-import 'package:google_ml_kit/google_ml_kit.dart';
+import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:path_provider/path_provider.dart';
 
 //Programado por HeroRickyGames
 //Tecnologia feita pela Google e a equipe do VLC
+final textRecognizer = TextRecognizer(script: TextRecognitionScript.latin);
+String extractedText = '';
 
 class MYIpcamera extends StatelessWidget {
   const MYIpcamera({super.key});
@@ -19,6 +21,8 @@ class MYIpcamera extends StatelessWidget {
       title: 'Flutter Scalable OCR IPCAMERA',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        brightness: Brightness.dark,
+        useMaterial3: true,
       ),
       home: ipCamera(title: 'Flutter Scalable OCR com IPCAMERA'),
     );
@@ -30,7 +34,7 @@ class ipCamera extends StatefulWidget {
 
   final String title;
 
-  final textRecognizer = GoogleMlKit.vision.textDetector();
+  final textRecognizer = TextRecognizer(script: TextRecognitionScript.latin);
 
   @override
   State<ipCamera> createState() => _ipCameraState();
@@ -52,10 +56,9 @@ class _ipCameraState extends State<ipCamera> {
 
   @override
   void initState() {
-    String stream = '/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER';
     super.initState();
     _videoPlayerController = VlcPlayerController.network(
-      'http://84.232.147.36:8080$stream',
+      'rtsp://192.168.3.45:80/0',
       hwAcc: HwAcc.auto,
       autoPlay: true,
       options: VlcPlayerOptions(),
@@ -102,22 +105,27 @@ class _ipCameraState extends State<ipCamera> {
 
                 Uint8List videoFrame = await _videoPlayerController.takeSnapshot();
 
-                final textRecognizer = GoogleMlKit.vision.textDetector();
                 print('Pegando imagem e pondo no texto');
 
 
                 final dir = (await getTemporaryDirectory()).path;
                 final imageFile = File('$dir/b.png')..writeAsBytesSync(videoFrame);
                 final image = InputImage.fromFile(imageFile);
+
+
                 final result = await textRecognizer.processImage(image);
-                String extractedText = result.text;
+                setState(() {
+                  extractedText = result.text;
+                });
+
                 print('Texto Extraido: $extractedText');
                 print('Fim');
 
               }, child: const Text(
                   'Visualizar no console o texto extraido'
               )
-              )
+              ),
+              Text('Texto extraido: $extractedText')
             ],
           ),
         ));

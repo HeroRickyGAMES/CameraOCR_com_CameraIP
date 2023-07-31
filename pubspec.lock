@@ -18,7 +18,7 @@ packages:
     source: hosted
     version: "2.1.1"
   camera:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: camera
       sha256: ebebead3d5ec3d148249331d751d462d7e8c98102b8830a9b45ec96a2bd4333f
@@ -29,10 +29,10 @@ packages:
     dependency: transitive
     description:
       name: camera_android
-      sha256: f43d07f9d7228ea1ca87d22e30881bd68da4b78484a1fbd1f1408b412a41cefb
+      sha256: f2d886ab431e468301eef451a897db8beb8e66a053bb556c3111d3337acc4c7b
       url: "https://pub.dev"
     source: hosted
-    version: "0.10.8+3"
+    version: "0.10.8+5"
   camera_avfoundation:
     dependency: transitive
     description:
@@ -53,10 +53,10 @@ packages:
     dependency: transitive
     description:
       name: camera_web
-      sha256: bcbd775fb3a9d51cc3ece899d54ad66f6306410556bac5759f78e13f9228841f
+      sha256: "6eb7b7f439ec8e48c2738408c7461df6e89a9dc42c91b7fb1586eb62b69c4672"
       url: "https://pub.dev"
     source: hosted
-    version: "0.3.1+4"
+    version: "0.3.2"
   characters:
     dependency: transitive
     description:
@@ -142,14 +142,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.15"
-  flutter_scalable_ocr:
-    dependency: "direct main"
-    description:
-      name: flutter_scalable_ocr
-      sha256: "9e5c239c993c3c6c0b530b42165547b275d7db18d646cfc840b750aea1a7c988"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -176,30 +168,22 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  google_ml_kit:
-    dependency: "direct main"
-    description:
-      name: google_ml_kit
-      sha256: "196eb476970a183e795acc1b9ffdada3e676339f32e70c51d6aaeea4d268f7e3"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.6.0"
   google_mlkit_commons:
     dependency: transitive
     description:
       name: google_mlkit_commons
-      sha256: "68429fa2e17686819dbaf2344790e3daa59924ef8625dd24f97f9deaaed42767"
+      sha256: "42173a8ba89f386486cc5b8249e84da4a4b861daa70498373627d985eb418689"
       url: "https://pub.dev"
     source: hosted
-    version: "0.3.0"
+    version: "0.5.0"
   google_mlkit_text_recognition:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: google_mlkit_text_recognition
-      sha256: "0d5ac35fc666c311e0cd34f64c28f0842eb192ee2f23d49845a14d147aede146"
+      sha256: "0f181d8a5aa6fc1b934c3454151eea6465c4e81cab1459e5a4b29aef82184618"
       url: "https://pub.dev"
     source: hosted
-    version: "0.6.0"
+    version: "0.9.0"
   js:
     dependency: transitive
     description:
